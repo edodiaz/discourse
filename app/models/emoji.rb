@@ -73,10 +73,10 @@ class Emoji
 
   def self.url_for(name)
     name = name.delete_prefix(':').delete_suffix(':').gsub(/(.+):t([1-6])/, '\1/\2')
-    if SiteSetting.external_emoji_url_enabled
-      "#{SiteSetting.external_emoji_url}/#{SiteSetting.emoji_set}/#{name}.png?v=#{EMOJI_VERSION}"
-    else
+    if SiteSetting.external_emoji_url.blank?
       "#{Discourse.base_path}/images/emoji/#{SiteSetting.emoji_set}/#{name}.png?v=#{EMOJI_VERSION}"
+    else
+      "#{SiteSetting.external_emoji_url}/#{SiteSetting.emoji_set}/#{name}.png?v=#{EMOJI_VERSION}"
     end
   end
 

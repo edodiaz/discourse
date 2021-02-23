@@ -180,9 +180,8 @@ export function buildEmojiUrl(code, opts) {
   }
 
   const noToneMatch = code.match(/([^:]+):?/);
-  const emojiBasePath = opts.enableEmojiCDN
-    ? opts.emojiCDNUrl
-    : "/images/emoji";
+  const emojiBasePath =
+    opts.external_emoji_url === "" ? "/images/emoji" : opts.emojiCDNUrl;
   if (
     noToneMatch &&
     !url &&

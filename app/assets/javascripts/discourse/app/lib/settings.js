@@ -11,7 +11,7 @@ export function prioritizeNameInUx(name) {
 export function emojiBasePath() {
   let siteSettings = helperContext().siteSettings;
 
-  return siteSettings.external_emoji_url_enabled
-    ? siteSettings.external_emoji_url
-    : "/images/emoji";
+  return siteSettings.external_emoji_url === ""
+    ? "/images/emojis"
+    : siteSettings.external_emoji_url;
 }

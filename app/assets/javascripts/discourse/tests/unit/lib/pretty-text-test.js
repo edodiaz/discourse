@@ -1525,7 +1525,6 @@ var bar = 'bar';
       {
         siteSettings: {
           emoji_set: "twitter",
-          external_emoji_url_enabled: true,
           external_emoji_url: "https://emoji.hosting.service",
         },
       },
