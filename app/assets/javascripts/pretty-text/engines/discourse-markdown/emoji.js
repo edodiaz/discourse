@@ -322,6 +322,8 @@ export function setup(helper) {
     opts.features.inlineEmoji = !!siteSettings.enable_inline_emoji_translation;
     opts.emojiSet = siteSettings.emoji_set || "";
     opts.customEmoji = state.customEmoji;
+    opts.enableEmojiCDN = siteSettings.external_emoji_url_enabled;
+    opts.emojiCDNUrl = siteSettings.external_emoji_url;
   });
 
   helper.registerPlugin((md) => {

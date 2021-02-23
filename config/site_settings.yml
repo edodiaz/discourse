@@ -1340,6 +1340,13 @@ files:
     default: "/letter_avatar_proxy/v4/letter/{first_letter}/{color}/{size}.png"
     client: true
     regex: '^((https?:)?\/)?\/.+[^\/]'
+  external_emoji_url_enabled:
+    default: false
+    client: true
+  external_emoji_url:
+    default: ""
+    client: true
+    regex: '^((https?:)?\/)?\/.+[^\/]'
   restrict_letter_avatar_colors:
     default: ""
     type: list

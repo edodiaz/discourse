@@ -1519,6 +1519,20 @@ var bar = 'bar';
     );
   });
 
+  test("emoji - emojiCDN", function (assert) {
+    assert.cookedOptions(
+      ":smile:",
+      {
+        siteSettings: {
+          emoji_set: "twitter",
+          external_emoji_url_enabled: true,
+          external_emoji_url: "https://emoji.hosting.service",
+        },
+      },
+      `<p><img src="https://emoji.hosting.service/twitter/smile.png?v=${v}" title=":smile:" class="emoji only-emoji" alt=":smile:"></p>`
+    );
+  });
+
   test("emoji - registerEmoji", function (assert) {
     registerEmoji("foo", "/images/d-logo-sketch.png");
 
