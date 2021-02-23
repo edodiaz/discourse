@@ -40,36 +40,8 @@ describe Emoji do
   end
 
   describe '.url_for' do
-    before do
-      SiteSetting.external_emoji_url = ''
-    end
     expected_url = "/images/emoji/twitter/blonde_woman.png?v=#{Emoji::EMOJI_VERSION}"
     expected_toned_url = "/images/emoji/twitter/blonde_woman/6.png?v=#{Emoji::EMOJI_VERSION}"
-
-    it 'should return url with filename' do
-      expect(Emoji.url_for("blonde_woman")).to eq(expected_url)
-    end
-
-    it 'should return url with skin toned filename' do
-      expect(Emoji.url_for("blonde_woman/6")).to eq(expected_toned_url)
-    end
-
-    it 'should return url with code' do
-      expect(Emoji.url_for(":blonde_woman:")).to eq(expected_url)
-    end
-
-    it 'should return url with skin toned code' do
-      expect(Emoji.url_for(":blonde_woman:t6:")).to eq(expected_toned_url)
-      expect(Emoji.url_for("blonde_woman:t6")).to eq(expected_toned_url)
-    end
-  end
-
-  describe '.url_for with CDN enabled' do
-    before do
-      SiteSetting.external_emoji_url = 'https://emojis.hosting.service'
-    end
-    expected_url = "#{SiteSetting.external_emoji_url}/twitter/blonde_woman.png?v=#{Emoji::EMOJI_VERSION}"
-    expected_toned_url = "#{SiteSetting.external_emoji_url}/twitter/blonde_woman/6.png?v=#{Emoji::EMOJI_VERSION}"
 
     it 'should return url with filename' do
       expect(Emoji.url_for("blonde_woman")).to eq(expected_url)
