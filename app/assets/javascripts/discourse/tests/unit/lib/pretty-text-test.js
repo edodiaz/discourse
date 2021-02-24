@@ -17,6 +17,7 @@ const rawOpts = {
     enable_emoji_shortcuts: true,
     enable_mentions: true,
     emoji_set: "emoji_one",
+    external_emoji_url: "",
     highlighted_languages: "json|ruby|javascript",
     default_code_lang: "auto",
     enable_markdown_linkify: true,
