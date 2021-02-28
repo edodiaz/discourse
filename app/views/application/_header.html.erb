@@ -3,13 +3,21 @@
     <div class="wrap">
       <div class="contents clearfix">
         <div class="title">
-          <a href="<%= path "/" %>">
-            <%- if application_logo_url.present? %>
-              <img src="<%= application_logo_url %>" alt="<%= SiteSetting.title %>" id="site-logo">
-            <%- else %>
-              <h2 id='site-text-logo'><%= SiteSetting.title %></h2>
-            <%- end %>
-          </a>
+          <%- if mobile_view? %>
+              <%- if application_logo_url.present? %>
+                <img src="<%= application_logo_url %>" alt="<%= SiteSetting.title %>" id="site-logo">
+              <%- else %>
+                <h2 id='site-text-logo'><%= SiteSetting.title %></h2>
+              <%- end %>
+          <%- else %>
+            <a href="<%= path "/" %>">
+              <%- if application_logo_url.present? %>
+                <img src="<%= application_logo_url %>" alt="<%= SiteSetting.title %>" id="site-logo">
+              <%- else %>
+                <h2 id='site-text-logo'><%= SiteSetting.title %></h2>
+              <%- end %>
+            </a>
+          <%- end %>
         </div>
         <div class="panel clearfix">
           <%- unless current_user || local_assigns[:hide_auth_buttons] %>
